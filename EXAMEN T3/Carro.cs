@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace EXAMEN_T3
 {
-   
-
     internal class Carro
     {
-       
         public Carro()
         {
         }
-
-        
         public Carro(string placa, string color, string tipo, double solesXMin, int vertice)
         {
             Placa = placa;
@@ -24,11 +19,10 @@ namespace EXAMEN_T3
             SolesXMin = solesXMin;
             Vertice = vertice;
         }
-
-        public string Placa;
-        public string Color;
-        public string Tipo; 
-        public double SolesXMin;
-        public int Vertice;
+        public string Placa { get; set; }
+        public string Color {  get; set; }
+        public string Tipo {  get; set; }
+        public double SolesXMin {  get; set; }
+        public int Vertice {  get; set; }
     }
 }

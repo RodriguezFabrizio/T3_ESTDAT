@@ -15,7 +15,6 @@ namespace EXAMEN_T3
             Tiempo = tiempo;
             Siguiente = null;
         }
-
         public int Destino { get; set; }
         public double Distancia { get; set; }
         public double Tiempo { get; set; }

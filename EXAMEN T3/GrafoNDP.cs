@@ -11,7 +11,7 @@ namespace EXAMEN_T3
         public NodoVertice Primero { get; set; }
         private Random rnd = new Random();
 
-        // Obtiene un vértice si existe, sino lo crea
+        
         public NodoVertice ObtenerOAgregarVertice(int id)
         {
             if (Primero == null)
@@ -35,8 +35,7 @@ namespace EXAMEN_T3
         public NodoVertice ObtenerVertice(int id)
         {
             NodoVertice actual = Primero;
-            while (actual != null)
-            {
+            while (actual != null){
                 if (actual.Id == id) return actual;
                 actual = actual.Siguiente;
             }
@@ -59,11 +58,10 @@ namespace EXAMEN_T3
             NodoVertice Nari = ObtenerOAgregarVertice(ari);
             NodoVertice Nver = ObtenerOAgregarVertice(ver);
 
-            // Validación: Solo agregar si no están conectados
             if (!ExisteArista(Nari, ver))
             {
                 AgregarAristaInterna(Nari, ver, distancia, tiempo);
-                AgregarAristaInterna(Nver, ari, distancia, tiempo); // No dirigido
+                AgregarAristaInterna(Nver, ari, distancia, tiempo); 
                 Console.WriteLine($"Arista creada entre {ari} y {ver}.");
             }
             else
@@ -80,7 +78,8 @@ namespace EXAMEN_T3
                 origen.PrimerArista = nueva;
             }
             else
-            {
+            
+       {
                 NodoArista actual = origen.PrimerArista;
                 while (actual.Siguiente != null)
                 {
@@ -122,12 +121,9 @@ namespace EXAMEN_T3
                 }
                 return true;
             }
-
             if (nivelActual == nivelMax) return false;
-
             visitados[numVisitados] = actual;
             numVisitados++;
-
             NodoVertice vNode = ObtenerVertice(actual);
             if (vNode == null) return false;
 
@@ -136,13 +132,12 @@ namespace EXAMEN_T3
 
             while (aNode != null)
             {
-                // Verificar si el destino de la arista ya fue visitado en este camino
+               
                 bool yaVisitado = false;
                 for (int i = 0; i < numVisitados; i++)
                 {
                     if (visitados[i] == aNode.Destino) yaVisitado = true;
                 }
-
                 if (!yaVisitado)
                 {
                     bool exito = BuscarCamino(aNode.Destino, destino, nivelActual + 1, nivelMax, distAcumulada + aNode.Distancia, tiempoAcumulado + aNode.Tiempo, ref mejorDistancia, ref mejorTiempo, visitados, numVisitados);

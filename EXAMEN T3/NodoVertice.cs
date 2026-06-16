@@ -11,14 +11,12 @@ namespace EXAMEN_T3
         public NodoVertice()
         {
         }
-
         public NodoVertice(int id, NodoArista primerArista)
         {
             Id = id;
             PrimerArista = primerArista;
             Siguiente = null;
         }
-
         public int Id { get; set; }
         public NodoArista PrimerArista { get; set; }
         public NodoVertice Siguiente { get; set; }
